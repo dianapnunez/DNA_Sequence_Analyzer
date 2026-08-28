@@ -1,10 +1,18 @@
-🧬 DNA Sequence Analyzer
+# 🧬 DNA Sequence Analyzer
 
-A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC content, generates a reverse-complement strand, transcribes DNA into RNA, splits frames into triplets, and translates RNA into a protein chain. This project was developed as a learning exercise in Python programming and Bioinformatics, demonstrating how computational methods can be applied to molecular biology.
+A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC content, generates a reverse-complement strand, transcribes DNA into RNA, splits frames into triplets, and translates RNA into a protein chain. 
 
-📖 Project Overview
+This project was developed as a learning exercise in Python programming and Bioinformatics, demonstrating how computational methods can be applied to molecular biology.
 
-DNA sequence analysis is one of the core tasks in bioinformatics. This project accepts a DNA sequence and performs multiple analyses commonly used in genetics and molecular biology. The program currently includes:
+---
+
+# 📖 Project Overview
+
+---
+
+DNA sequence analysis is one of the core tasks in bioinformatics. This project accepts a DNA sequence and performs multiple analyses commonly used in genetics and molecular biology.
+
+The program currently includes:
 * Nucleotide counting (A, T, G, C)
 * Sequence length calculation
 * GC Content percentage calculation
@@ -13,45 +21,74 @@ DNA sequence analysis is one of the core tasks in bioinformatics. This project a
 * Codon splitting (3-nucleotide steps)
 * Basic protein translation with structural `Stop` codon termination
 
-📂 Project Structure
+---
 
+# 📂 Project Structure
+
+---
+
+```text
 DNA_Sequence_Analyzer/
-│
-├── DNA_Sequence_Analyzer.py   # Main program execution containing core analysis functions
-├── Genetic_Code.py            # Stores the Codon_Table reference dictionary used for protein translation
-├── LICENSE                    # MIT Open-Source Legal Documentation
-├── README.md                  # Project documentation
-└── .gitignore                 # System cache and IDE filters
+├── DNA_Sequence_Analyzer.py
+├── Genetic_Code.py
+├── LICENSE
+├── README.md
+└── .gitignore
+```
 
-⚙️ Technologies Used
+### File Description
+
+| File | Purpose |
+| :--- | :--- |
+| `DNA_Sequence_Analyzer.py` | Controls the program execution and contains all DNA analysis functions |
+| `Genetic_Code.py` | Stores the genetic code dictionary used for protein translation |
+| `README.md` | Project documentation |
+
+---
+
+# ⚙️ Technologies Used
+
+---
 
 * Python 3
 * Git
 * GitHub
 
-🚀 Installation & Execution
+---
 
-1. Clone the repository
+# 🚀 Installation & Execution
+
+---
+
+1. Clone the repository:
 ```bash
 git clone https://github.com
 ```
-2. Move into the project directory
+2. Move into the project directory:
 ```bash
 cd DNA_Sequence_Analyzer
 ```
-3. Run the program
+3. Run the program:
 ```bash
 python DNA_Sequence_Analyzer.py
 ```
 
-🧬 Benchmark DNA Sequence
+---
+
+# 🧬 Benchmark DNA Sequence
+
+---
 
 The script includes a default genomic test vector to execute and verify operations:
 ```text
 GTCTTCGCCTGCCCTAGAAATGCTGGCTTCCTAGGTACGCT
 ```
 
-📊 Script Console Output
+---
+
+# 📊 Script Console Output
+
+---
 
 When executed, the program processes the baseline sequence vector and outputs metrics chronologically:
 
@@ -76,7 +113,11 @@ Protein Sequence:
 VFACPRNAGFLGTL
 ```
 
-🧠 Biological Concepts Used
+---
+
+# 🧠 Biological Concepts Used
+
+---
 
 This project applies several important concepts from molecular biology, including:
 * **DNA Primary Structure:** Sequence metrics and length checking.
@@ -85,17 +126,25 @@ This project applies several important concepts from molecular biology, includin
 * **Codon Logic:** Iterating sequences in steps of 3 to fetch matching amino acid residues.
 * **Translational Termination:** Breaking string assembly structures dynamically when matching a biological `Stop` codon value.
 
-🎯 Learning Outcomes
+---
+
+# 🎯 Learning Outcomes
+
+---
 
 This project helped me practice:
 * Python programming and system configurations
 * Functions and modular program patterns
-* String translation mappings (`str.maketrans`) and inversion slicing (`[::-1]`)
+* String manipulation, translation mappings (`str.maketrans`), and inversion slicing (`[::-1]`)
 * Custom dictionary value extraction loops (`.get()`)
 * Separation of concerns by isolating data modules (`Genetic_Code.py`) from logic modules
 * Git version control and repository hosting profiles
 
-🔮 Future Improvements
+---
+
+# 🔮 Future Improvements
+
+---
 
 Planned enhancements include:
 * Complete 64-codon handling checks
@@ -104,14 +153,26 @@ Planned enhancements include:
 * Generating data visualization charts of nucleotide distributions using Matplotlib
 * Output options to save analysis summaries into structured CSV files
 
-🤝 Contributing
+---
+
+# 🤝 Contributing
+
+---
 
 Contributions, suggestions, and improvements are welcome. Feel free to fork the repository, create a new branch, and submit a pull request.
 
-📜 License
+---
+
+# 📜 License
+
+---
 
 This project is licensed under the MIT License.
 
-⭐ Support
+---
+
+# ⭐ Support
+
+---
 
 If you found this project useful or interesting, consider giving it a ⭐ Star on GitHub.
