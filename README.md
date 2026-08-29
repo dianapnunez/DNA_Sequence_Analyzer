@@ -1,8 +1,8 @@
 # 🧬 DNA Sequence Analyzer
 
-A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC content, generates a reverse-complement strand, transcribes DNA into RNA, splits frames into triplets, and translates RNA into a protein chain. 
+A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC content, generates a reverse-complement strand, transcribes DNA into RNA, and translates RNA into protein. 
 
-This project was developed as a learning exercise in Python programming and Bioinformatics, demonstrating how computational methods can be applied to molecular biology.
+This project combined multiple Rosalind bioinformatics problems into a single, cohesive application. This project was a learning exercise in Python programming and Bioinformatics, demonstrating how computational methods can be applied to molecular biology.
 
 ---
 
@@ -18,8 +18,7 @@ The program currently includes:
 * GC Content percentage calculation
 * Reverse Complement antisense generation
 * DNA to RNA transcription
-* Codon splitting (3-nucleotide steps)
-* Basic protein translation with structural `Stop` codon termination
+* RNA to protein translation with `Stop` codon detection
 
 ---
 
@@ -75,22 +74,19 @@ python DNA_Sequence_Analyzer.py
 
 ---
 
-# 🧬 Benchmark DNA Sequence
+# 🧬 Example DNA Sequence
 
 ---
 
-The script includes a default genomic test vector to execute and verify operations:
 ```text
 GTCTTCGCCTGCCCTAGAAATGCTGGCTTCCTAGGTACGCT
 ```
 
 ---
 
-# 📊 Script Console Output
+# 📊 Example Output
 
 ---
-
-When executed, the program processes the baseline sequence vector and outputs metrics chronologically:
 
 ```text
 Length: 41 
@@ -133,11 +129,10 @@ This project applies several important concepts from molecular biology, includin
 ---
 
 This project helped me practice:
-* Python programming and system configurations
-* Functions and modular program patterns
+* Python programming
+* Functions and modular programming
 * String manipulation, translation mappings (`str.maketrans`), and inversion slicing (`[::-1]`)
-* Custom dictionary value extraction loops (`.get()`)
-* Separation of concerns by isolating data modules (`Genetic_Code.py`) from logic modules
+* Dictionaries, functions and loops (`.get()`)
 * Git version control and repository hosting profiles
 
 ---

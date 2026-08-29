@@ -1,6 +1,6 @@
 from Genetic_Code import Codon_Table
 
-seq= 'GTCTTCGCCTGCCCTAGAAATGCTGGCTTCCTAGGTACGCT'
+seq= 'GTCTTCGCCTGCCCTAGATAAATGCTGGCTTCCTAGGTACGCT'
 
 #Print number of nucleotides
 print("Length:" + str(len(seq)), "\n")
@@ -36,6 +36,13 @@ def get_GC_content(seq):
 
 print(f"GC content:\n{get_GC_content(seq):.2f}%""\n")
 
+#find AT content (I could have used 100-GC_count)
+def get_AT_content(seq):
+    AT_count = seq.upper().count("A") + seq.upper().count("T")
+    return (AT_count / len(seq)) * 100
+
+print(f"AT content:\n{get_AT_content(seq):.2f}%""\n")
+
 #translate RNA into Protein
 def RNA_to_protein(RNA_seq):
     protein= []
@@ -43,6 +50,8 @@ def RNA_to_protein(RNA_seq):
         codon= RNA_seq[i:i+3]
         amino_acid= Codon_Table.get(codon)
         if amino_acid == 'Stop':
+            protein.append('*')
+            print(f"Stop codons found: '{codon}'\n")
             break
         if amino_acid:
             protein.append(amino_acid)
