@@ -1,6 +1,6 @@
 # 🧬 DNA Sequence Analyzer
 
-A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC content, generates a reverse-complement strand, transcribes DNA into RNA, and translates RNA into protein. 
+A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC and AT content, generates a complement and reverse-complement strand, transcribes DNA into RNA, and translates RNA into protein. 
 
 This project combined multiple Rosalind bioinformatics problems into a single, cohesive application. This project was a learning exercise in Python programming and Bioinformatics, demonstrating how computational methods can be applied to molecular biology.
 
@@ -13,12 +13,16 @@ This project combined multiple Rosalind bioinformatics problems into a single, c
 DNA sequence analysis is one of the core tasks in bioinformatics. This project accepts a DNA sequence and performs multiple analyses commonly used in genetics and molecular biology.
 
 The program currently includes:
-* Nucleotide counting (A, T, G, C)
+* Nucleotide counts (A, T, G, C)
 * Sequence length calculation
-* GC Content percentage calculation
-* Reverse Complement antisense generation
+* GC content calculation
+* AT content calculation
+* Complement DNA strand generation 
+* Reverse Complement strand generation
 * DNA to RNA transcription
-* RNA to protein translation with `Stop` codon detection
+* RNA to protein translation
+* `Start` and `Stop` codon detection
+* Molecular weight calculation
 
 ---
 
@@ -28,8 +32,8 @@ The program currently includes:
 
 ```text
 DNA_Sequence_Analyzer/
-├── DNA_Sequence_Analyzer.py
-├── Genetic_Code.py
+├── analyzer_script.py
+├── bio_utils.py
 ├── LICENSE
 ├── README.md
 └── .gitignore
@@ -37,11 +41,11 @@ DNA_Sequence_Analyzer/
 
 ### File Description
 
-| File | Purpose |
-| :--- | :--- |
-| `DNA_Sequence_Analyzer.py` | Controls the program execution and contains all DNA analysis functions |
-| `Genetic_Code.py` | Stores the genetic code dictionary used for protein translation |
-| `README.md` | Project documentation |
+| File                 | Purpose                                                                                              |
+|:---------------------|:-----------------------------------------------------------------------------------------------------|
+| `Analyzer_Script.py` | Controls the program execution and contains all DNA analysis functions                               |
+| `bio_utils.py`       | Stores the genetic code dictionary used for protein translation and the molecular weight of proteins |
+| `README.md`          | Project documentation                                                                                |
 
 ---
 
@@ -89,7 +93,7 @@ GTCTTCGCCTGCCCTAGAAATGCTGGCTTCCTAGGTACGCT
 ---
 
 ```text
-Length: 41 
+Sequence Length: 41 
 
 A: 9
 T: 10
@@ -118,8 +122,7 @@ VFACPRNAGFLGTL
 This project applies several important concepts from molecular biology, including:
 * **DNA Primary Structure:** Sequence metrics and length checking.
 * **Complementary Base Pairing:** Antisense strand creation via string dictionary translations.
-* **Central Dogma of Molecular Biology:** Simulating transcription loops (DNA ➔ RNA) and translational step-frames.
-* **Codon Logic:** Iterating sequences in steps of 3 to fetch matching amino acid residues.
+* **Central Dogma of Molecular Biology:** Simulating transcription loops (DNA ➔ RNA) and reading-frame translation.
 * **Translational Termination:** Breaking string assembly structures dynamically when matching a biological `Stop` codon value.
 
 ---
@@ -142,7 +145,6 @@ This project helped me practice:
 ---
 
 Planned enhancements include:
-* Complete 64-codon handling checks
 * Multi-line FASTA file parsing and ingestion pipelines
 * Error validation traps to flags non-canonical code bugs (such as numbers or unknown characters)
 * Generating data visualization charts of nucleotide distributions using Matplotlib
