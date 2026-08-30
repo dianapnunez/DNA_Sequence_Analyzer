@@ -1,6 +1,4 @@
-from bio_utils import CODON_TABLE
-from bio_utils import AMINO_ACID_WEIGHTS
-
+from bio_utils import *
 
 seq= 'GTCATGTTCGCCTGCCCTAGATAACTGGCTTCCTAGGTACGCT'
 
@@ -49,7 +47,7 @@ def get_at_content(seq):
 
 print(f"AT content:\n{get_at_content(seq):.2f}%""\n")
 
-#translate RNA into Protein
+#translate RNA into Protein, scanning first for an AUG start codon, or translated the entire sequence otherwise
 def rna_to_protein(rna_seq):
     protein= []
 
@@ -109,8 +107,32 @@ def mol_weight(amino_acid_chain):
 
     return total_weight
 protein_weight= mol_weight(amino_acid_chain)
-print(f"Protein Molecular Weight: {protein_weight:.2f} Da")
+print(f"Protein Molecular Weight: {protein_weight:.2f} Da\n")
+
+#hydrophobicity index calculator
+def grand_average_hydrophobicity(protein_seq):
+    if not protein_seq:
+        return 0.0
+
+    total_score = 0.0
+    valid_count = 0
+
+    for aa in protein_seq.upper():
+        if aa in KYTE_DOOLITTLE:
+            total_score += KYTE_DOOLITTLE[aa]
+            valid_count += 1
+
+    if valid_count == 0:
+        return 0.0
+
+    # Return the GRAVY (Grand Average of Hydropathy) score
+    # Positive = Hydrophobic (Lipid loving), Negative = Hydrophilic (Water loving)
+    return total_score / valid_count
+
+#GRAVY stands for Grand Average of Hydropathy, the standard scientific metric used to quantify how a protein interacts with water based on its amino acid sequence.
+gravy_score = grand_average_hydrophobicity(amino_acid_chain)
+print(f"Hydrophobicity Index (GRAVY): {gravy_score:.2f}")
 
 
-#TODO add mol weight calculator,ORF finder, melting temp and hydrophobicity index
-#TODO update readme pep88, dna seq/ project overview to reflect changes,
+#TODO add ORF finder, melting temp
+#TODO update readme pep8, dna seq/ project overview to reflect changes,

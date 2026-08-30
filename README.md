@@ -1,6 +1,6 @@
 # 🧬 DNA Sequence Analyzer
 
-A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC and AT content, generates a complement and reverse-complement strand, transcribes DNA into RNA, and translates RNA into protein. 
+A Python-based bioinformatics project that performs fundamental DNA sequence analysis. The application calculates nucleotide composition, computes GC and AT content, generates a complement and reverse-complement strand, transcribes DNA into RNA, translates RNA into protein, calculates protein molecular weight, and provides a hydrophobicity index score. 
 
 This project combined multiple Rosalind bioinformatics problems into a single, cohesive application. This project was a learning exercise in Python programming and Bioinformatics, demonstrating how computational methods can be applied to molecular biology.
 
@@ -23,6 +23,7 @@ The program currently includes:
 * RNA to protein translation
 * `Start` and `Stop` codon detection
 * Molecular weight calculation
+* Hydrophobicity Index Score
 
 ---
 
@@ -41,11 +42,11 @@ DNA_Sequence_Analyzer/
 
 ### File Description
 
-| File                 | Purpose                                                                                              |
-|:---------------------|:-----------------------------------------------------------------------------------------------------|
-| `Analyzer_Script.py` | Controls the program execution and contains all DNA analysis functions                               |
-| `bio_utils.py`       | Stores the genetic code dictionary used for protein translation and the molecular weight of proteins |
-| `README.md`          | Project documentation                                                                                |
+| File                 | Purpose                                                                                                                            |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+| `analyzer_script.py` | Controls the program execution and contains all DNA analysis functions                                                             |
+| `bio_utils.py`       | Serves as a reference module providing lookup data for RNA translation, amino acid molecular weights, and hydrophobicity profiling |
+| `README.md`          | Project documentation                                                                                                              |
 
 ---
 
@@ -93,24 +94,39 @@ GTCTTCGCCTGCCCTAGAAATGCTGGCTTCCTAGGTACGCT
 ---
 
 ```text
-Sequence Length: 41 
+Sequence Length:43
 
-A: 9
-T: 10
+A: 7
+T: 13
 C: 13
-G: 9
+G: 10
 
-RNA sequence: 
-GUCUUCGCCUGCCCUAGAAAUGCUGGCUUCCUAGGUACGCU
+Complementary Strand:
+CAGTACAAGCGGACGGGATCTATTGACCGAAGGATCCATGCGA
 
-Reverse Complement: 
-AGCGTACCTAGGAAGCCAGCATTTCTAGGGCAGGCGAAGAC
+Reverse Complementary Strand:
+AGCGTACCTAGGAAGCCAGTTATCTAGGGCAGGCGAACATGAC
+
+RNA Sequence:
+GUCAUGUUCGCCUGCCCUAGAUAACUGGCUUCCUAGGUACGCU
 
 GC content:
-53.66%
+53.49%
 
-Protein Sequence: 
-VFACPRNAGFLGTL
+AT content:
+46.51%
+
+Start codon found at position 3
+Stop codons found: 'UAA'
+
+Protein Sequence:
+MFACPR
+
+Protein Molecular Weight: 615.24 Da
+
+Hydrophobicity Index (GRAVY): 0.48
+
+
 ```
 
 ---
@@ -120,11 +136,12 @@ VFACPRNAGFLGTL
 ---
 
 This project applies several important concepts from molecular biology, including:
-* **DNA Primary Structure:** Sequence metrics and length checking.
-* **Complementary Base Pairing:** Antisense strand creation via string dictionary translations.
-* **Central Dogma of Molecular Biology:** Simulating transcription loops (DNA ➔ RNA) and reading-frame translation.
-* **Translational Termination:** Breaking string assembly structures dynamically when matching a biological `Stop` codon value.
-
+* **DNA Structure & Composition:** Counting bases and measuring sequence length
+* **Complementary Base Pairing:** Generating the complement strand relies on the specific hydrogen bonding rules where A pairs with T and C pairs with G.
+* **Transcription:** Converting DNA to RNA   
+* **Translation:** Converting RNA to protein. Finding AUG simulates scanning for the start codon (Methionine), while terminating at specific triplets simulates stop codons releasing the peptide chain.
+* **Dehydration Synthesis:** Subtracting water weight (18.015 Da) for each peptide bond accounts for the condensation reaction that links amino acids together.
+* **Protein Hydrophobicity:** Reveals whether the protein prefers aqueous environments or lipid membranes (transmembrane regions).
 ---
 
 # 🎯 Learning Outcomes
@@ -145,7 +162,8 @@ This project helped me practice:
 ---
 
 Planned enhancements include:
-* Multi-line FASTA file parsing and ingestion pipelines
+* Melting temperature calculator
+* FASTA file parsing and ingestion pipelines
 * Error validation traps to flags non-canonical code bugs (such as numbers or unknown characters)
 * Generating data visualization charts of nucleotide distributions using Matplotlib
 * Output options to save analysis summaries into structured CSV files
